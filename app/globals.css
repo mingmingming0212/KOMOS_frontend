@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Define main color variables */
+:root {
+  --background: #751f1f;
+  --foreground: #1c1c1c;
+  --primary: #2B4A8C;  /* KOMOS primary blue */
+  --secondary: #f4f4f4;
+  --accent: #0056b3;
+  --muted: #e0e0e0;
+  --border-color: #dcdcdc;
+  --card-bg: #ffffff;
+  --button-bg: #2B4A8C;
+  --button-text: #ffffff;
+  --radius: 0px; /* ✅ Set to 0px for sharp corners */
+}
+
+/* ✅ Dark mode colors */
+.dark {
+  --background: #1c1c1c;
+  --foreground: #ffffff;
+  --primary: #1e3a8a;
+  --secondary: #252525;
+  --accent: #007bff;
+  --muted: #444;
+  --border-color: #333;
+  --card-bg: #222;
+  --button-bg: #1e3a8a;
+  --button-text: #ffffff;
+}
+
+/* ✅ Apply the variables */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ✅ Buttons */
+.btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+}
+
+/* ✅ Cards & Containers */
+.card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ✅ Borders & Layout */
+.border {
+  border-color: var(--border-color);
+}
+
+/* ✅ Navbar */
+.navbar {
+  background-color: var(--primary);
+  color: var(--button-text);
+  padding: 10px 20px;
+}
+
+/* ✅ Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent);
+}
