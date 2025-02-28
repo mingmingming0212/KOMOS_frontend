@@ -4,11 +4,11 @@ import Link from "next/link"
 
 const NavBar = () => {
   const navItems = [
-    { name: "카테고리", path: "/category" },
-    { name: "활동", path: "/activity" },
-    { name: "이벤트", path: "/events" },
-    { name: "공지/게시글", path: "/notices" },
-    { name: "코모스 샵", path: "/shop" },
+    // { name: "카테고리", path: "/category" },
+    // { name: "활동", path: "/activity" },
+    // { name: "이벤트", path: "/events" },
+    { name: "공지/게시글", path: "/posts" },
+    // { name: "코모스 샵", path: "/shop" },
   ]
 
   return (
