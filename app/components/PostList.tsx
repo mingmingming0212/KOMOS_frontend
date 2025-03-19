@@ -126,6 +126,8 @@ const PostList = () => {
         </tbody>
       </table>
     </div>
+
+
   );
 };
 
