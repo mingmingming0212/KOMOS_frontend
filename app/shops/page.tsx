@@ -1,28 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import Header from "../components/Header"
-import NavBar from "../components/NavBar"
+import { useState } from "react"; 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import Header from "../components/Header";
+import NavBar from "../components/NavBar";
+import { AiOutlineShoppingCart } from "react-icons/ai"; // 🛒 쇼핑카트 아이콘 가져오기
 
 interface Product {
-  id: number
-  name: string
-  imageUrl: string
-  price: number
-  discount?: number
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+  discount?: number;
 }
 
 const ShopPage = () => {
   // ✅ 백엔드 없이 더미 데이터로 표시
   const [products] = useState<Product[]>([
-    { id: 1, name: "모이스처 메이크업 세트", imageUrl: "/dummy-product1.jpg", price: 120000, discount: 30 },
-    { id: 2, name: "스튜디오 파운데이션", imageUrl: "/dummy-product2.jpg", price: 79000, discount: 15 },
-    { id: 3, name: "시카플러스 밤", imageUrl: "/dummy-product3.jpg", price: 40000, discount: 20 },
-    { id: 4, name: "너리싱 샴푸 세트", imageUrl: "/dummy-product4.jpg", price: 138000, discount: 25 },
-  ])
+    { id: 1, name: "코모스 랜드야드", imageUrl: "/images/product1.png", price: 12000, discount: 25 },
+    { id: 2, name: "코모스 네임텐트", imageUrl: "/images/product2.png", price: 7000, discount: 10 },
+    { id: 3, name: "코모스 반팔셔츠", imageUrl: "/images/product3.png", price: 25000, discount: 20 },
+    { id: 4, name: "코모스 뱃지", imageUrl: "/images/product4.png", price: 15000, discount: 25 },
+  ]);
 
   return (
     <main className="min-h-screen bg-gray-100 font-pretendard">
@@ -37,11 +38,11 @@ const ShopPage = () => {
       {/* ✅ 네비게이션 바 */}
       <NavBar />
 
-      {/* ✅ 상품 리스트 (헤더 아래 배치) */}
-      <motion.div className="container mx-auto px-6 py-8">
+      {/* ✅ 상품 리스트 */}
+      <div className="container mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold text-komos-navy text-center mb-10">Shop</h1>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <motion.div
               key={product.id}
@@ -80,20 +81,23 @@ const ShopPage = () => {
                 </div>
               </Link>
 
-              {/* 🛒 장바구니 버튼 */}
+              {/* 🛒 장바구니 버튼 (아이콘 왼쪽 배치) */}
               <motion.button
-                className="mt-3 w-full bg-komos-navy text-white py-2 rounded-lg hover:bg-opacity-90 transition"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="mt-3 w-full bg-komos-navy text-white py-2 rounded-lg flex items-center justify-center gap-2 
+                           hover:bg-opacity-90 transition"
+                whileHover={{ scale: 0.85 }}
+                whileTap={{ scale: 0.75 }}
               >
-                장바구니 담기
+                <AiOutlineShoppingCart size={20} />  {/* 🛒 쇼핑카트 아이콘 */}
+                담기
               </motion.button>
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default ShopPage
+export default ShopPage;
+
